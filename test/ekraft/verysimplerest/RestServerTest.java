@@ -65,7 +65,7 @@ public class RestServerTest {
   public void cleanup()
     throws Exception {
 
-    RestException.addHandler(null);
+    RestException.setHandler(null);
 
     server.shutdown();
     while (TestUtils.serverIsUp(TEST_PORT)) {
@@ -261,7 +261,7 @@ public class RestServerTest {
     throws Exception {
 
     List<Throwable> throwables = new ArrayList<>();
-    RestException.addHandler(throwables::add);
+    RestException.setHandler(throwables::add);
     List<String> signal = Collections.synchronizedList(new ArrayList<>());
 
     server.get("sleep", () -> {
@@ -519,7 +519,7 @@ public class RestServerTest {
     AnnotationHttpHandler httpHandler = new AnnotationHttpHandler(server, annotationTodoRestService);
 
     List<Throwable> throwables = new ArrayList<>();
-    RestException.addHandler(throwables::add);
+    RestException.setHandler(throwables::add);
     httpHandler.handle(fakeHttpExchange);
     ByteArrayOutputStream byteArrayOutputStream = (ByteArrayOutputStream) fakeHttpExchange.getResponseBody();
     String errorMessage = byteArrayOutputStream.toString();

@@ -41,7 +41,7 @@ public class RestClientTest {
   public void cleanup()
     throws Exception {
 
-    RestException.addHandler(null);
+    RestException.setHandler(null);
 
     echoServer.shutdown();
     restServer.shutdown();

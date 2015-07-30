@@ -40,7 +40,7 @@ public class RestException
   }
 
 
-  public static synchronized void addHandler(Consumer<Throwable> handler) {
+  public static synchronized void setHandler(Consumer<Throwable> handler) {
 
     RestException.handler = handler;
   }

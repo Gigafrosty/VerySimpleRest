@@ -19,7 +19,7 @@ public class RestMain {
 
   public static void main(String[] args) {
 
-    RestException.addHandler(Throwable::printStackTrace);
+    RestException.setHandler(Throwable::printStackTrace);
 
     int port = 8080;
     RestServer restServer = new RestServer(port);

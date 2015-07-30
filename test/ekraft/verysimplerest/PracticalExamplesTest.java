@@ -28,7 +28,7 @@ public class PracticalExamplesTest {
 
     server = new RestServer(TEST_PORT);
     client = new RestClient("localhost", TEST_PORT);
-    RestException.addHandler(System.out::println);
+    RestException.setHandler(System.out::println);
   }
 
 
@@ -36,7 +36,7 @@ public class PracticalExamplesTest {
   public void cleanup()
     throws Exception {
 
-    RestException.addHandler(null);
+    RestException.setHandler(null);
 
     server.shutdown();
     while (TestUtils.serverIsUp(TEST_PORT)) {

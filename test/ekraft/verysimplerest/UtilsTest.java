@@ -45,7 +45,7 @@ public class UtilsTest {
   public void cleanup()
     throws Exception {
 
-    RestException.addHandler(null);
+    RestException.setHandler(null);
 
     server.shutdown();
     while (TestUtils.serverIsUp(TEST_PORT)) {
@@ -254,7 +254,7 @@ public class UtilsTest {
   public void restExceptionTest() {
 
     List<Throwable> list = new ArrayList<>();
-    RestException.addHandler(list::add);
+    RestException.setHandler(list::add);
 
     try {
       throw new RestException("Message");

@@ -37,7 +37,7 @@ public class AnnotationHttpHandlerTest {
   public void cleanup()
     throws Exception {
 
-    RestException.addHandler(null);
+    RestException.setHandler(null);
 
     server.shutdown();
     while (TestUtils.serverIsUp(TEST_PORT)) {
@@ -663,7 +663,7 @@ public class AnnotationHttpHandlerTest {
     throws Exception {
 
     List<Throwable> list = new ArrayList<>();
-    RestException.addHandler(list::add);
+    RestException.setHandler(list::add);
 
     server.addService(new AnnotationTestService());
 

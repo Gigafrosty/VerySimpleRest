@@ -29,7 +29,7 @@ public class LambdaHttpHandlerTests {
   public void cleanup()
     throws Exception {
 
-    RestException.addHandler(null);
+    RestException.setHandler(null);
 
     server.shutdown();
     while (TestUtils.serverIsUp(TEST_PORT)) {
@@ -403,7 +403,7 @@ public class LambdaHttpHandlerTests {
     throws Exception {
 
     List<Throwable> list = new ArrayList<>();
-    RestException.addHandler(list::add);
+    RestException.setHandler(list::add);
 
     server.get("/services/timeout", request -> {
       try {
