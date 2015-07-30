@@ -2,7 +2,6 @@ package ekraft.verysimplerest.examples;
 
 
 import ekraft.verysimplerest.RestServer;
-import ekraft.verysimplerest.annotation.AnnotationUtils;
 import ekraft.verysimplerest.lambda.HttpRequest;
 
 import java.util.Collections;
